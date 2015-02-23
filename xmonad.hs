@@ -39,7 +39,7 @@ import           System.IO
 -- certain contrib modules.
 --
 myTerminal :: String
-myTerminal = "gnome-terminal"
+myTerminal = "xfce4-terminal"
  
 -- Width of the window border in pixels.
 --
@@ -203,7 +203,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask,                 xK_r           ), spawn "emacs")
     , ((modMask,                 xK_f           ), spawn "pcmanfm")
     , ((modMask,                 xK_i           ),
-                             spawn "urxvtc -e ssh yiannist@monaud")
+                             spawn "xfce4-terminal -e ssh g4zhouky@cdf.toronto.edu")
     , ((modMask,                 xK_bracketleft ), spawn "pidgin")
     , ((modMask,                 xK_bracketright), spawn "skype")
     , ((mod1Mask,                xK_u           ),
@@ -383,7 +383,7 @@ defaults = defaultConfig {
 --
 main :: IO ()
 main = do
-    mapM_ spawn ["firefox", "thunderbird", "skype"]
+    --mapM_ spawn ["firefox", "thunderbird", "skype"]
     xmproc <- spawnPipe "`which xmobar` ~/.xmonad/xmobar"
     xmonad $ withUrgencyHook NoUrgencyHook defaults {
         logHook = do FI.fadeInactiveLogHook 0xbbbbbbbb
